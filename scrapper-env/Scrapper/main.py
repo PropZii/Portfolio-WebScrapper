@@ -2,10 +2,11 @@ import requests
 from bs4 import BeautifulSoup
 
 
-url = "https://www.atlas-monde.net/tous-les-pays/"
+url = input("Entrer un url: ")
 
 response = requests.get(url)
 
-print(response)
-# if response.ok:
-#     print(response.text)
+
+if response.ok:
+    soup = BeautifulSoup(response.text, "html.parser")
+    print(soup)
